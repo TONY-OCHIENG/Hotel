@@ -55,7 +55,20 @@ function Navigation() {
             <h1 className="text-2xl font-extrabold text-white">Mara</h1>
             <p className="text-white text-gray-300 text-xs">Hotel</p>
          </div>        
-      </div>
+        </div>
+         <ul className="ml-4 mt-20 cursor-pointer text-white text-sm font-extrabold">
+              {
+               navigationLinks.map((item) => (
+                  <li className="mb-8">
+                     <NavLink 
+                     
+                     className={({isActive }) => (isActive ? "my-active-class" : "hover:border-b-amber-100 hover:border-b hover:text-amber-500")}
+                      to={item.href}>{item.name}</NavLink>
+                  </li>
+               ))
+              }
+            </ul>
+            
        </div>
     </div>
   )
