@@ -1,5 +1,28 @@
 import { useEffect, useState } from "react"
-import { BedDouble, Users, Wifi, Coffee, Maximize } from "lucide-react";
+import { BedDouble, Users, Wifi, Coffee, Maximize,Utensils, HeartHandshake } from "lucide-react";
+const highlights = [
+  {
+    icon: BedDouble,
+    title: "Restful rooms",
+    text: "Clean, comfortable interiors with quality bedding and modern amenities.",
+  },
+  {
+    icon: Utensils,
+    title: "Good food",
+    text: "Meals prepared with care, from a hearty breakfast to a relaxed dinner.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Warm service",
+    text: "A friendly team that anticipates what you need before you ask.",
+  },
+  {
+    icon: Wifi,
+    title: "Stay connected",
+    text: "Free Wi-Fi throughout the hotel for work, streaming, and staying in touch.",
+  },
+];
+
 
 type Room = {
   id: number;
@@ -104,32 +127,57 @@ function Home() {
         </div>
         {/* About section*/}
         <div className="w-full bg-amber-50">
-          <div className="md:w-[80%] w-full px-2 mx-auto py-16">
-            <section className="about">
-              <h2 className="text-center font-extrabold text-3xl text-gray-900">About Mara Hotel</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
-                <div>
-                    <p>
-                      Mara Hotel is a welcoming home away from home, created for travelers who
-                      value comfort, convenience, and genuine hospitality. From the moment you
-                      arrive, our team is committed to making your stay smooth, relaxing, and
-                      memorable.
-                    </p>
-                    <p>
-                      Our rooms are thoughtfully designed with clean, comfortable interiors,
-                      restful bedding, and modern amenities to help you unwind after a long day
-                      of travel or work.
-                    </p>
-                </div>
-                <div>
-                  <img src="public/images/valeriia-bugaiova-_pPHgeHz1uk-unsplash.jpg" className="rounded-md" alt="" />
-                </div>
-              </div>
-            </section>
+          <div className="md:w-[80%] w-full px-2 mx-auto py-20">
+              <section id="about" className=" px-5 text-stone-900">
+                  <h2 className="mb-4 text-3xl text-center font-bold sm:text-4xl">
+                        About Mara Hotel
+                      </h2>
+                  <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
+                    <div className="relative">
+                      <img
+                        src="public/images/valeriia-bugaiova-_pPHgeHz1uk-unsplash.jpg"
+                        alt="Mara Hotel exterior"
+                        loading="lazy"
+                        className="aspect-[4/3] w-full rounded-xl bg-stone-200 object-cover shadow-md"
+                      />
+                    </div>
+
+                    <div>
+                    
+                      <p className="mb-4 leading-relaxed text-stone-600">
+                        Mara Hotel is a welcoming home away from home, created for
+                        travelers who value comfort, convenience, and genuine hospitality.
+                        From the moment you arrive, our team is committed to making your
+                        stay smooth, relaxing, and memorable.
+                      </p>
+                      <p className="mb-8 leading-relaxed text-stone-600">
+                        Whether you're here for business, a family holiday, or a romantic
+                        getaway, we pay attention to the details: a warm greeting, a
+                        spotless room, and service that makes you want to come back.
+                      </p>
+
+                      <ul className="grid gap-5 sm:grid-cols-2">
+                        {highlights.map(({ icon: Icon, title, text }) => (
+                          <li key={title} className="flex gap-3">
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-700">
+                              <Icon size={20} aria-hidden="true" />
+                            </span>
+                            <div>
+                              <h3 className="font-semibold">{title}</h3>
+                              <p className="text-sm leading-relaxed text-stone-600">
+                                {text}
+                              </p>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </section>
           </div>
         </div>
         {/* Top rooms */}
-         <section id="rooms" className="bg-stone-100 px-5 py-16 text-gray-900">
+         <section id="rooms" className="bg-gray-50 px-5 py-16 text-gray-900">
             <div className="mx-auto mb-10 max-w-2xl text-center">
               <h2 className="mb-3 text-3xl font-bold sm:text-4xl">Our Top Rooms</h2>
               <p className="leading-relaxed text-stone-600">
