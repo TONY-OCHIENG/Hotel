@@ -1,5 +1,44 @@
 import { useEffect, useState } from "react"
-import { BedDouble, Users, Wifi, Coffee, Maximize,Utensils, HeartHandshake } from "lucide-react";
+import { BedDouble, Users, Wifi, Coffee, Maximize,Utensils, HeartHandshake,Star } from "lucide-react";
+type Testimonial = {
+  id: number;
+  name: string;
+  location: string;
+  stay: string;
+  rating: number;
+  quote: string;
+};
+
+const testimonials: Testimonial[] = [
+  {
+    id: 1,
+    name: "Wanjiru K.",
+    location: "Nairobi",
+    stay: "Deluxe Room",
+    rating: 5,
+    quote:
+      "The room was spotless and the bed was so comfortable I slept better than I have in months. The staff greeted us by name by the second day.",
+  },
+  {
+    id: 2,
+    name: "James O.",
+    location: "Mombasa",
+    stay: "Standard Room",
+    rating: 5,
+    quote:
+      "I was in town for work and everything was easy: quick check-in, fast Wi-Fi, and a quiet desk to get things done. I'll book here again.",
+  },
+  {
+    id: 3,
+    name: "The Hassan Family",
+    location: "Kisumu",
+    stay: "Family Suite",
+    rating: 4,
+    quote:
+      "We stayed as a family of five and the suite gave everyone enough space. The kids loved breakfast, and the team was patient and helpful.",
+  },
+];
+
 const highlights = [
   {
     icon: BedDouble,
@@ -247,6 +286,64 @@ function Home() {
               ))}
             </div>
           </section>
+          {/* Testimonials section */}
+            <section id="testimonials" className="bg-stone-100 px-5 py-16 text-stone-900">
+                <div className="mx-auto mb-10 max-w-2xl text-center">
+                  <h2 className="mb-3 text-3xl font-bold sm:text-4xl">
+                    What our guests say
+                  </h2>
+                  <p className="leading-relaxed text-stone-600">
+                    Honest words from people who have stayed with us.
+                  </p>
+                </div>
+
+                <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {testimonials.map((t) => (
+                    <figure
+                      key={t.id}
+                      className="flex flex-col rounded-xl bg-white p-6 shadow-md"
+                    >
+                      <div
+                        className="mb-4 flex gap-1"
+                        role="img"
+                        aria-label={`${t.rating} out of 5 stars`}
+                      >
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            size={18}
+                            aria-hidden="true"
+                            className={
+                              i < t.rating
+                                ? "fill-orange-500 text-orange-500"
+                                : "text-stone-300"
+                            }
+                          />
+                        ))}
+                      </div>
+
+                      <blockquote className="mb-6 leading-relaxed text-stone-700">
+                        “{t.quote}”
+                      </blockquote>
+
+                      <figcaption className="mt-auto flex items-center gap-3 border-t border-stone-200 pt-4">
+                        <span
+                          aria-hidden="true"
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 font-semibold text-orange-700"
+                        >
+                          {t.name.charAt(0)}
+                        </span>
+                        <div>
+                          <p className="font-semibold">{t.name}</p>
+                          <p className="text-sm text-stone-600">
+                            {t.location} · {t.stay}
+                          </p>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
     </div>
   )
 }
