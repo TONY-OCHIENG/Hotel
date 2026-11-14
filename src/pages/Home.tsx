@@ -45,7 +45,31 @@ function Home() {
           </section>
         </div>
         {/* About section*/}
-        <div className="w-full h-[100vh] bg-amber-50"></div>
+        <div className="w-full bg-amber-50">
+          <div className="md:w-[80%] w-full px-2 mx-auto py-16">
+            <section className="about">
+              <h2 className="text-center font-extrabold text-3xl text-gray-900">About Mara Hotel</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+                <div>
+                    <p>
+                      Mara Hotel is a welcoming home away from home, created for travelers who
+                      value comfort, convenience, and genuine hospitality. From the moment you
+                      arrive, our team is committed to making your stay smooth, relaxing, and
+                      memorable.
+                    </p>
+                    <p>
+                      Our rooms are thoughtfully designed with clean, comfortable interiors,
+                      restful bedding, and modern amenities to help you unwind after a long day
+                      of travel or work.
+                    </p>
+                </div>
+                <div>
+                  <img src="public/images/valeriia-bugaiova-_pPHgeHz1uk-unsplash.jpg" className="rounded-md" alt="" />
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
     </div>
   )
 }
