@@ -1,1 +1,5 @@
 @import "tailwindcss";
+.my-active-class{
+    color: orange;
+    border-bottom: 2px solid orange;
+}
