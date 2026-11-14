@@ -39,8 +39,12 @@ function Home() {
                 family stay, Mara Hotel offers the comfort, service, and attention to
                 detail that make every visit feel like coming home.
             </p>
-            <button className="mt-10 py-3 rounded-md px-8 bg-amber-50 text-black font-extrabold
+           <div className="mt-10 flex gap-4 md:flex-row flex-col max-w-md">
+             <button className="py-4 rounded-md md:w-[60%] bg-amber-50 text-black font-extrabold
             cursor-pointer">Enquire on whatsapp</button>
+             <button className="py-4 md:w-[60%] rounded-md  text-amber-50 border font-extrabold
+            cursor-pointer">Book Now</button>
+           </div>
             <p className="text-amber-400 text-xs mt-10">Over 1000+ satisfied clients</p>
           </section>
         </div>
