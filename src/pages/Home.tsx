@@ -129,9 +129,9 @@ function Home() {
           </div>
         </div>
         {/* Top rooms */}
-         <section id="rooms" className="bg-stone-100 px-5 py-16 text-stone-900">
+         <section id="rooms" className="bg-stone-100 px-5 py-16 text-gray-900">
             <div className="mx-auto mb-10 max-w-2xl text-center">
-              <h2 className="mb-3 text-3xl font-bold sm:text-4xl">Our top rooms</h2>
+              <h2 className="mb-3 text-3xl font-bold sm:text-4xl">Our Top Rooms</h2>
               <p className="leading-relaxed text-stone-600">
                 Three ways to stay at Mara Hotel, each with clean interiors, restful
                 bedding, and friendly service.
