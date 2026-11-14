@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 function Navigation() {
    const [openNavigation, setopenNavigation] = useState<Boolean>(false)
    const navigationLinks = [
-      {name: "Home",href: "/home"},
+      {name: "Home",href: "/"},
       {name: "Rooms",href: "/rooms"},
       {name: "Confrence Room",href: "/confrence"},
       {name: "Dining",href: "/dining"},
