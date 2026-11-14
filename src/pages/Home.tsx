@@ -7,6 +7,13 @@ const backgroundImages = [
 ]
 function Home() {
     const [slideIndex,setslideIndex] = useState<number>(0)
+    const nextSlide = () => {
+        if (slideIndex < backgroundImages.length - 1) {
+            setslideIndex((prev) => prev + 1)
+        } else {
+            setslideIndex(0)
+        }
+    }
   return (
     <div
       style={{
@@ -14,7 +21,8 @@ function Home() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-    className="h-[100vh] w-full bg-black transition-all duration-300">
+    className="h-[100vh] w-full transition-all duration-300">
+        <div className="w-full h-full bg-black opacity-60"></div>
     </div>
   )
 }

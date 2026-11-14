@@ -14,7 +14,7 @@ function Navigation() {
       {name: "Contact",href: "/contact"},
    ]
   return (
-    <div className="fixed w-full h-[10vh] bg-[#4d1600] flex items-center">  
+    <div className="fixed w-full h-[10vh] z-50 bg-[#4d1600] flex items-center">  
      <div className="w-full px-2 md:w-[80%] mx-auto flex items-center justify-between">
       <div className="flex gap-2 items-center">
          <img src="public/Mara Hotel Logo@1x.png" className="h-15 rounded-full w-15" alt="" />
