@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const backgroundImages = [
     {image: "public/images/christian-lambert-vmIWr0NnpCQ-unsplash.jpg"},
@@ -14,6 +14,12 @@ function Home() {
             setslideIndex(0)
         }
     }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide()
+        },5000)
+        return () => clearInterval(interval)
+    },[nextSlide])
   return (
     <div
       style={{
