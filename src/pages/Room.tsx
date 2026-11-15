@@ -10,9 +10,9 @@ type RoomType = {
 
 const rooms: RoomType[] = [
   { name: "Standard Room", price: 8500 },
-  { name: "Deluxe Room", price: 11000 },
+  { name: "Deluxe Room", price: 12500 },
   { name: "Executive Room", price: 18000 },
-  { name: "Family Room", price: 20000 },
+  { name: "Family Room", price: 18500 },
 ];
 const formatPrice = (price: number) => `KES ${price.toLocaleString("en-KE")}`;
 function Room() {
