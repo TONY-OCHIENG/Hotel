@@ -16,7 +16,7 @@ import {
 
 const ROOM = {
   name: "Deluxe Room",
-  price: 15000,
+  price: 11000,
   maxGuests: 3,
   image: "/images/delux.jpeg",
   description:
