@@ -1,13 +1,15 @@
+import StandardRoom from "../components/StandardRoom";
+
 type RoomType = {
   name: string;
   price: number;
 };
 
 const rooms: RoomType[] = [
-  { name: "Standard Room", price: 12000 },
+  { name: "Standard Room", price: 8500 },
   { name: "Deluxe Room", price: 11000 },
-  { name: "Executive Room", price: 18000 },
-  { name: "Family Room", price: 20000 },
+  { name: "Executive Room", price: 15000 },
+  { name: "Family Room", price: 18000 },
 ];
 const formatPrice = (price: number) => `KES ${price.toLocaleString("en-KE")}`;
 function Room() {
@@ -59,6 +61,8 @@ function Room() {
           ))}
         </div>
       </div>
+      {/* Standard room section */}
+      <StandardRoom/>
    </div>
   )
 }
