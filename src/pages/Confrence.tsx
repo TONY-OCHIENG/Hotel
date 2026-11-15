@@ -1,4 +1,5 @@
 import { Wifi, Projector, Car, Mic } from "lucide-react";
+import ConferenceHalls from "../components/ConfrenceHall";
 
 const features = [
   { icon: Wifi, name: "High-speed Wi-Fi", detail: "Reliable and free for all guests" },
@@ -54,7 +55,8 @@ function Confrence() {
                 ))}
             </div>
         </div>
-        
+        {/* Confrence hall section */}
+        <ConferenceHalls/>
     </div>
   )
 }
