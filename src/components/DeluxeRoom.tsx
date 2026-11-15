@@ -1,18 +1,43 @@
 import { useMemo, useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import { Check } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import {
+  BedDouble,
+  Users,
+  Maximize,
+  Wifi,
+  Coffee,
+  Tv,
+  ShowerHead,
+  Wind,
+  Sofa,
+  Trees,
+  Check,
+} from "lucide-react";
 
-export type RoomInfo = {
-  id: string;
-  name: string;
-  price: number;
-  maxGuests: number;
-  image: string;
-  description: string;
-  facts: { icon: LucideIcon; label: string }[];
-  amenities: { icon: LucideIcon; label: string }[];
+const ROOM = {
+  name: "Deluxe Room",
+  price: 15000,
+  maxGuests: 3,
+  image: "/images/delux.jpeg",
+  description:
+    "More space and a separate sitting area with garden views. The Deluxe Room is a good fit for couples and weekend getaways, with a king bed, a spacious bathroom, and room to relax after a long day.",
 };
+
+const facts = [
+  { icon: Users, label: "Up to 3 guests" },
+  { icon: BedDouble, label: "1 King bed" },
+  { icon: Maximize, label: "32 m²" },
+];
+
+const amenities = [
+  { icon: Wifi, label: "Free Wi-Fi" },
+  { icon: Coffee, label: "Breakfast included" },
+  { icon: Tv, label: "Smart TV" },
+  { icon: Wind, label: "Air conditioning" },
+  { icon: ShowerHead, label: "Bathroom with shower" },
+  { icon: Sofa, label: "Sitting area" },
+  { icon: Trees, label: "Garden view" },
+];
 
 type FormState = {
   name: string;
@@ -47,7 +72,7 @@ const nightsBetween = (checkIn: string, checkOut: string) => {
 const inputClass =
   "w-full rounded-lg border border-stone-300 bg-white px-3 py-2.5 text-stone-900 placeholder:text-stone-400 focus:border-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-700/30";
 
-export default function RoomBookingSection({ room }: { room: RoomInfo }) {
+export default function DeluxeRoom() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -56,7 +81,7 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
     () => nightsBetween(form.checkIn, form.checkOut),
     [form.checkIn, form.checkOut]
   );
-  const total = nights * room.price;
+  const total = nights * ROOM.price;
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -77,8 +102,8 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
       return;
     }
 
-    // TODO: send this data to your backend or booking API.
-    console.log("Booking request:", { room: room.name, ...form, nights, total });
+    // TODO: send `form` to your backend or booking API here.
+    console.log("Booking request:", { room: ROOM.name, ...form, nights, total });
     setSubmitted(true);
   };
 
@@ -88,31 +113,29 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
     setError("");
   };
 
-  const fieldId = (name: string) => `${room.id}-${name}`;
-
   return (
-    <section id={room.id} className="bg-stone-100 px-5 py-16 text-stone-900">
+    <section id="deluxe-room" className="bg-stone-100 px-5 py-16 text-stone-900">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-5 lg:gap-12">
         {/* Room details */}
         <div className="lg:col-span-3">
           <img
-            src={room.image}
-            alt={`${room.name} at Mara Hotel`}
+            src={ROOM.image}
+            alt={`${ROOM.name} at Mara Hotel`}
             className="aspect-[16/10] w-full rounded-xl bg-stone-200 object-cover shadow-md"
           />
 
           <div className="mt-6 flex flex-wrap items-end justify-between gap-3">
-            <h2 className="text-3xl font-bold">{room.name}</h2>
+            <h2 className="text-3xl font-bold">{ROOM.name}</h2>
             <p className="text-stone-600">
               <strong className="text-2xl text-orange-700">
-                {formatPrice(room.price)}
+                {formatPrice(ROOM.price)}
               </strong>{" "}
               per night
             </p>
           </div>
 
           <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-stone-700">
-            {room.facts.map(({ icon: Icon, label }) => (
+            {facts.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-2">
                 <Icon size={18} aria-hidden="true" />
                 {label}
@@ -121,12 +144,12 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
           </ul>
 
           <p className="mt-5 leading-relaxed text-stone-600">
-            {room.description}
+            {ROOM.description}
           </p>
 
           <h3 className="mb-4 mt-8 text-xl font-semibold">Room amenities</h3>
           <ul className="grid gap-4 sm:grid-cols-2">
-            {room.amenities.map(({ icon: Icon, label }) => (
+            {amenities.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-700">
                   <Icon size={20} aria-hidden="true" />
@@ -150,7 +173,7 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
                 </h3>
                 <p className="mb-6 leading-relaxed text-stone-600">
                   Thank you, {form.name}. We've received your request for the{" "}
-                  {room.name} and will confirm it at {form.email} shortly.
+                  {ROOM.name} and will confirm it at {form.email} shortly.
                 </p>
                 <button
                   type="button"
@@ -170,11 +193,11 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
                 </div>
 
                 <div>
-                  <label htmlFor={fieldId("name")} className="mb-1 block text-sm font-medium">
+                  <label htmlFor="deluxe-name" className="mb-1 block text-sm font-medium">
                     Full name
                   </label>
                   <input
-                    id={fieldId("name")}
+                    id="deluxe-name"
                     name="name"
                     type="text"
                     required
@@ -187,11 +210,11 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
                 </div>
 
                 <div>
-                  <label htmlFor={fieldId("email")} className="mb-1 block text-sm font-medium">
+                  <label htmlFor="deluxe-email" className="mb-1 block text-sm font-medium">
                     Email
                   </label>
                   <input
-                    id={fieldId("email")}
+                    id="deluxe-email"
                     name="email"
                     type="email"
                     required
@@ -204,11 +227,11 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
                 </div>
 
                 <div>
-                  <label htmlFor={fieldId("phone")} className="mb-1 block text-sm font-medium">
+                  <label htmlFor="deluxe-phone" className="mb-1 block text-sm font-medium">
                     Phone
                   </label>
                   <input
-                    id={fieldId("phone")}
+                    id="deluxe-phone"
                     name="phone"
                     type="tel"
                     required
@@ -222,11 +245,11 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor={fieldId("checkIn")} className="mb-1 block text-sm font-medium">
+                    <label htmlFor="deluxe-checkIn" className="mb-1 block text-sm font-medium">
                       Check-in
                     </label>
                     <input
-                      id={fieldId("checkIn")}
+                      id="deluxe-checkIn"
                       name="checkIn"
                       type="date"
                       required
@@ -237,11 +260,11 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
                     />
                   </div>
                   <div>
-                    <label htmlFor={fieldId("checkOut")} className="mb-1 block text-sm font-medium">
+                    <label htmlFor="deluxe-checkOut" className="mb-1 block text-sm font-medium">
                       Check-out
                     </label>
                     <input
-                      id={fieldId("checkOut")}
+                      id="deluxe-checkOut"
                       name="checkOut"
                       type="date"
                       required
@@ -254,17 +277,17 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
                 </div>
 
                 <div>
-                  <label htmlFor={fieldId("guests")} className="mb-1 block text-sm font-medium">
+                  <label htmlFor="deluxe-guests" className="mb-1 block text-sm font-medium">
                     Guests
                   </label>
                   <select
-                    id={fieldId("guests")}
+                    id="deluxe-guests"
                     name="guests"
                     value={form.guests}
                     onChange={handleChange}
                     className={inputClass}
                   >
-                    {Array.from({ length: room.maxGuests }, (_, i) => i + 1).map(
+                    {Array.from({ length: ROOM.maxGuests }, (_, i) => i + 1).map(
                       (n) => (
                         <option key={n} value={n}>
                           {n} {n === 1 ? "guest" : "guests"}
@@ -275,11 +298,11 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
                 </div>
 
                 <div>
-                  <label htmlFor={fieldId("requests")} className="mb-1 block text-sm font-medium">
+                  <label htmlFor="deluxe-requests" className="mb-1 block text-sm font-medium">
                     Special requests <span className="text-stone-500">(optional)</span>
                   </label>
                   <textarea
-                    id={fieldId("requests")}
+                    id="deluxe-requests"
                     name="requests"
                     rows={3}
                     value={form.requests}
@@ -289,10 +312,11 @@ export default function RoomBookingSection({ room }: { room: RoomInfo }) {
                   />
                 </div>
 
+                {/* Price summary */}
                 <div className="rounded-lg bg-stone-50 p-4 text-sm">
                   <div className="flex justify-between text-stone-600">
                     <span>
-                      {formatPrice(room.price)} × {nights}{" "}
+                      {formatPrice(ROOM.price)} × {nights}{" "}
                       {nights === 1 ? "night" : "nights"}
                     </span>
                     <span>{formatPrice(total)}</span>
