@@ -1,10 +1,17 @@
+import { Wifi, Projector, Car, Mic } from "lucide-react";
 
+const features = [
+  { icon: Wifi, name: "High-speed Wi-Fi", detail: "Reliable and free for all guests" },
+  { icon: Projector, name: "Projector and screen", detail: "Clear display for presentations" },
+  { icon: Car, name: "Ample parking", detail: "Safe space for all attendees" },
+  { icon: Mic, name: "Microphones", detail: "Sound system for every hall" },
+];
 function Confrence() {
   return (
     <div>   
      <div
       style={{
-        backgroundImage: `url(/images/hall.jpeg)`,
+        backgroundImage: `url(/images/hall2.jpeg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
