@@ -1,5 +1,6 @@
 import DeluxeRoom from "../components/DeluxeRoom";
 import ExecutiveRoom from "../components/ExecuteveRoom";
+import FamilyRoom from "../components/FamilyRoom";
 import StandardRoom from "../components/StandardRoom";
 
 type RoomType = {
@@ -69,6 +70,8 @@ function Room() {
       <DeluxeRoom/>
       {/* Executive room section */}
       <ExecutiveRoom/>
+      {/* Family room section */}
+      <FamilyRoom/>
    </div>
   )
 }
