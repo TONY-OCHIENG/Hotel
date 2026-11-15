@@ -1,6 +1,49 @@
 import { useEffect, useState } from "react"
-import { BedDouble, Users, Wifi, Coffee, Maximize,Utensils, HeartHandshake,Star, MapPin, Phone, Mail } from "lucide-react";
+import { BedDouble, Users, Wifi, Coffee, Maximize,Utensils, Wine, Clock, HeartHandshake,Star, MapPin, Phone, Mail } from "lucide-react";
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+
+type DiningOption = {
+  id: number;
+  name: string;
+  description: string;
+  hours: string;
+  image: string;
+  icon: typeof Coffee;
+  dishes: string[];
+};
+
+const options: DiningOption[] = [
+  {
+    id: 1,
+    name: "Breakfast Buffet",
+    description:
+      "Start the day with fresh fruit, eggs made to order, pastries, and hot Kenyan tea and coffee.",
+    hours: "6:30 AM – 10:30 AM",
+    image: "public/images/breakfirst.jpeg",
+    icon: Coffee,
+    dishes: ["Fresh tropical fruit", "Eggs your way", "Mandazi and pastries"],
+  },
+  {
+    id: 2,
+    name: "The Mara Restaurant",
+    description:
+      "Lunch and dinner with local favorites and international dishes, cooked fresh and served with a smile.",
+    hours: "12:00 PM – 10:00 PM",
+    image: "public/images/lunch.jpg",
+    icon: Utensils,
+    dishes: ["Nyama choma", "Pilau and kachumbari", "Grilled fish and ugali"],
+  },
+  {
+    id: 3,
+    name: "Garden Bar",
+    description:
+      "Unwind with a cold drink, a cocktail, or a light snack in a relaxed outdoor setting.",
+    hours: "4:00 PM – 11:00 PM",
+    image: "public/images/lightbites.jpeg",
+    icon: Wine,
+    dishes: ["Signature cocktails", "Local beers and wines", "Light bites"],
+  },
+];
 
 
 const quickLinks = [
@@ -231,6 +274,73 @@ function Home() {
                 </section>
           </div>
         </div>
+        {/* Dining section */}
+           <section id="dining" className="bg-white px-5 py-16 text-stone-900">
+              <div className="mx-auto mb-10 max-w-2xl text-center">
+                <h2 className="mb-3 text-3xl font-bold sm:text-4xl">
+                  Dining at Mara Hotel
+                </h2>
+                <p className="leading-relaxed text-stone-600">
+                  From a slow morning breakfast to an evening drink, enjoy good food
+                  and friendly service without leaving the hotel.
+                </p>
+              </div>
+
+              <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {options.map(({ id, name, description, hours, image, icon: Icon, dishes }) => (
+                  <article
+                    key={id}
+                    className="flex flex-col overflow-hidden rounded-xl bg-stone-50 shadow-md"
+                  >
+                    <img
+                      src={image}
+                      alt={`${name} at Mara Hotel`}
+                      loading="lazy"
+                      className="aspect-[4/3] w-full bg-stone-200 object-cover"
+                    />
+
+                    <div className="flex flex-1 flex-col p-5">
+                      <div className="mb-2 flex items-center gap-2">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-700">
+                          <Icon size={18} aria-hidden="true" />
+                        </span>
+                        <h3 className="text-xl font-semibold">{name}</h3>
+                      </div>
+
+                      <p className="mb-4 leading-relaxed text-stone-600">
+                        {description}
+                      </p>
+
+                      <ul className="mb-5 space-y-1 text-sm text-stone-700">
+                        {dishes.map((dish) => (
+                          <li key={dish} className="flex items-center gap-2">
+                            <span
+                              aria-hidden="true"
+                              className="h-1.5 w-1.5 rounded-full bg-orange-600"
+                            />
+                            {dish}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <p className="mt-auto flex items-center gap-2 border-t border-stone-200 pt-4 text-sm font-medium text-stone-700">
+                        <Clock size={16} aria-hidden="true" />
+                        {hours}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-10 text-center">
+                <a
+                  href="/book"
+                  className="inline-block rounded-lg bg-orange-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+                >
+                  Reserve a table
+                </a>
+              </div>
+    </section>
         {/* Top rooms */}
          <section id="rooms" className="bg-gray-50 px-5 py-16 text-gray-900">
             <div className="mx-auto mb-10 max-w-2xl text-center">
@@ -361,7 +471,7 @@ function Home() {
                 </div>
               </section>
             {/* Footer section */}
-            <footer className="bg-amber-950 px-5 pt-14 pb-6 text-amber-50">
+            <footer className="bg-[#4d1600]  px-5 pt-14 pb-6 text-amber-50">
                 <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
                   <div>
                     <h2 className="mb-3 text-2xl font-bold">Mara Hotel</h2>
