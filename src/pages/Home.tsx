@@ -1,6 +1,56 @@
 import { useEffect, useState } from "react"
-import { BedDouble, Users, Wifi, Coffee, Maximize,Utensils, Wine, Clock, HeartHandshake,Star, MapPin, Phone, Mail } from "lucide-react";
+import { BedDouble, Users, Wifi, Coffee, Mic,
+  Car,  Projector,  Check, Maximize,Utensils, Wine, Clock, HeartHandshake,Star, MapPin, Phone, Mail } from "lucide-react";
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+
+
+type Hall = {
+  id: number;
+  name: string;
+  capacity: string;
+  setup: string;
+  description: string;
+  image: string;
+};
+
+const halls: Hall[] = [
+  {
+    id: 1,
+    name: "Boardroom",
+    capacity: "Up to 15 people",
+    setup: "Boardroom table",
+    description:
+      "A private, quiet room for executive meetings, interviews, and small team sessions.",
+    image: "/images/conference/boardroom.jpg",
+  },
+  {
+    id: 2,
+    name: "Mara Hall",
+    capacity: "Up to 60 people",
+    setup: "Theatre, classroom, or U-shape",
+    description:
+      "A flexible hall suited to workshops, trainings, seminars, and company events.",
+    image: "/images/conference/mara-hall.jpg",
+  },
+  {
+    id: 3,
+    name: "Grand Ballroom",
+    capacity: "Up to 150 people",
+    setup: "Banquet, theatre, or cocktail",
+    description:
+      "Our largest space for conferences, weddings, receptions, and large celebrations.",
+    image: "/images/conference/ballroom.jpg",
+  },
+];
+
+const amenities = [
+  { icon: Projector, label: "Projector and screen" },
+  { icon: Wifi, label: "High-speed Wi-Fi" },
+  { icon: Mic, label: "Sound system and microphones" },
+  { icon: Coffee, label: "Tea, coffee, and catering" },
+  { icon: Car, label: "Ample parking" },
+  { icon: Users, label: "On-site events support" },
+];
 
 type DiningOption = {
   id: number;
@@ -335,7 +385,7 @@ function Home() {
               <div className="mt-10 text-center">
                 <a
                   href="/book"
-                  className="inline-block rounded-lg bg-orange-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+                  className="inline-block rounded-lg bg-[#4d1600] px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
                 >
                   Reserve a table
                 </a>
@@ -412,6 +462,75 @@ function Home() {
               ))}
             </div>
           </section>
+          {/* confrence section */}
+            <section id="conference" className="bg-stone-100 px-5 py-16 text-stone-900">
+                <div className="mx-auto mb-10 max-w-2xl text-center">
+                  <h2 className="mb-3 text-3xl font-bold sm:text-4xl">
+                    Conferences and events
+                  </h2>
+                  <p className="leading-relaxed text-stone-600">
+                    Host your next meeting, training, or celebration at Mara Hotel, with
+                    comfortable spaces, reliable equipment, and a team that handles the
+                    details.
+                  </p>
+                </div>
+
+                <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {halls.map((hall) => (
+                    <article
+                      key={hall.id}
+                      className="flex flex-col overflow-hidden rounded-xl bg-white shadow-md"
+                    >
+                      <img
+                        src={hall.image}
+                        alt={`${hall.name} at Mara Hotel`}
+                        loading="lazy"
+                        className="aspect-[4/3] w-full bg-stone-200 object-cover"
+                      />
+                      <div className="flex flex-1 flex-col p-5">
+                        <h3 className="mb-1 text-xl font-semibold">{hall.name}</h3>
+                        <p className="mb-3 flex items-center gap-2 text-sm font-medium text-orange-700">
+                          <Users size={16} aria-hidden="true" />
+                          {hall.capacity}
+                        </p>
+                        <p className="mb-4 leading-relaxed text-stone-600">
+                          {hall.description}
+                        </p>
+                        <p className="mt-auto border-t border-stone-200 pt-4 text-sm text-stone-700">
+                          <span className="font-semibold">Setup:</span> {hall.setup}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="mx-auto mt-12 max-w-6xl rounded-xl bg-white p-6 shadow-md sm:p-8">
+                  <h3 className="mb-5 text-xl font-semibold">What's included</h3>
+                  <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {amenities.map(({ icon: Icon, label }) => (
+                      <li key={label} className="flex items-center gap-3">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-700">
+                          <Icon size={20} aria-hidden="true" />
+                        </span>
+                        <span className="text-stone-700">{label}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-stone-200 pt-6 sm:flex-row sm:items-center">
+                    <p className="flex items-center gap-2 text-stone-700">
+                      <Check size={18} className="text-orange-700" aria-hidden="true" />
+                      Custom packages for half-day, full-day, and residential events.
+                    </p>
+                    <a
+                      href="mailto:events@marahotel.com?subject=Conference%20enquiry"
+                      className="rounded-lg bg-orange-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+                    >
+                      Request a quote
+                    </a>
+                  </div>
+                </div>
+              </section>
           {/* Testimonials section */}
             <section id="testimonials" className="bg-stone-100 px-5 py-16 text-stone-900">
                 <div className="mx-auto mb-10 max-w-2xl text-center">
