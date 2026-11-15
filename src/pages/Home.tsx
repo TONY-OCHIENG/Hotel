@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { BedDouble, Users, Wifi, Coffee, Mic,
   Car,  Projector,  Check, Maximize,Utensils, Wine, Clock, HeartHandshake,Star, MapPin, Phone, Mail } from "lucide-react";
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import ScrollToTop from "../components/ScrollToTop";
 
 
 type Hall = {
@@ -21,7 +22,7 @@ const halls: Hall[] = [
     setup: "Boardroom table",
     description:
       "A private, quiet room for executive meetings, interviews, and small team sessions.",
-    image: "/images/conference/boardroom.jpg",
+    image: "/images/boardroom.jpeg",
   },
   {
     id: 2,
@@ -30,7 +31,7 @@ const halls: Hall[] = [
     setup: "Theatre, classroom, or U-shape",
     description:
       "A flexible hall suited to workshops, trainings, seminars, and company events.",
-    image: "/images/conference/mara-hall.jpg",
+    image: "/images/hall2.jpeg",
   },
   {
     id: 3,
@@ -39,7 +40,7 @@ const halls: Hall[] = [
     setup: "Banquet, theatre, or cocktail",
     description:
       "Our largest space for conferences, weddings, receptions, and large celebrations.",
-    image: "/images/conference/ballroom.jpg",
+    image: "/images/ballroom.jpg",
   },
 ];
 
@@ -69,7 +70,7 @@ const options: DiningOption[] = [
     description:
       "Start the day with fresh fruit, eggs made to order, pastries, and hot Kenyan tea and coffee.",
     hours: "6:30 AM – 10:30 AM",
-    image: "public/images/breakfirst.jpeg",
+    image: "/images/breakfirst.jpeg",
     icon: Coffee,
     dishes: ["Fresh tropical fruit", "Eggs your way", "Mandazi and pastries"],
   },
@@ -79,7 +80,7 @@ const options: DiningOption[] = [
     description:
       "Lunch and dinner with local favorites and international dishes, cooked fresh and served with a smile.",
     hours: "12:00 PM – 10:00 PM",
-    image: "public/images/lunch.jpg",
+    image: "/images/lunch.jpg",
     icon: Utensils,
     dishes: ["Nyama choma", "Pilau and kachumbari", "Grilled fish and ugali"],
   },
@@ -89,7 +90,7 @@ const options: DiningOption[] = [
     description:
       "Unwind with a cold drink, a cocktail, or a light snack in a relaxed outdoor setting.",
     hours: "4:00 PM – 11:00 PM",
-    image: "public/images/lightbites.jpeg",
+    image: "/images/lightbites.jpeg",
     icon: Wine,
     dishes: ["Signature cocktails", "Local beers and wines", "Light bites"],
   },
@@ -191,7 +192,7 @@ const rooms: Room[] = [
     description:
       "A quiet, comfortable room with a plush bed, a work desk, and a private bathroom. Ideal for solo travelers and business stays.",
     price: 8500,
-    image: "public/images/standard.jpg",
+    image: "/images/standard.jpg",
     guests: 2,
     beds: "1 Queen bed",
     size: "22 m²",
@@ -203,7 +204,7 @@ const rooms: Room[] = [
     description:
       "More space and a sitting area with garden views. A good fit for couples and weekend getaways who want extra room to relax.",
     price: 12500,
-    image: "public/images/delux.jpeg",
+    image: "/images/delux.jpeg",
     guests: 3,
     beds: "1 King bed",
     size: "32 m²",
@@ -215,7 +216,7 @@ const rooms: Room[] = [
     description:
       "Two bedrooms and a lounge, set up for families and small groups. Plenty of space to spread out and stay together.",
     price: 18500,
-    image: "public/images/family.jpg",
+    image: "/images/family.jpg",
     guests: 5,
     beds: "1 King + 2 Single beds",
     size: "55 m²",
@@ -226,9 +227,9 @@ const rooms: Room[] = [
 const formatPrice = (price: number) => `KES ${price.toLocaleString("en-KE")}`;
 
 const backgroundImages = [
-    {image: "public/images/christian-lambert-vmIWr0NnpCQ-unsplash.jpg"},
-    {image: "public/images/point3d-commercial-imaging-ltd-oxeCZrodz78-unsplash.jpg"},
-    {image: "public/images/valeriia-bugaiova-_pPHgeHz1uk-unsplash.jpg"}
+    {image: "/images/christian-lambert-vmIWr0NnpCQ-unsplash.jpg"},
+    {image: "/images/point3d-commercial-imaging-ltd-oxeCZrodz78-unsplash.jpg"},
+    {image: "/images/valeriia-bugaiova-_pPHgeHz1uk-unsplash.jpg"}
 ]
 function Home() {
     const [slideIndex,setslideIndex] = useState<number>(0)
@@ -524,7 +525,7 @@ function Home() {
                     </p>
                     <a
                       href="mailto:events@marahotel.com?subject=Conference%20enquiry"
-                      className="rounded-lg bg-orange-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+                      className="rounded-lg bg-[#4d1600] px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
                     >
                       Request a quote
                     </a>
@@ -662,6 +663,7 @@ function Home() {
                   © {new Date().getFullYear()} Mara Hotel. All rights reserved.
                 </div>
               </footer>
+         <ScrollToTop/>
     </div>
   )
 }
