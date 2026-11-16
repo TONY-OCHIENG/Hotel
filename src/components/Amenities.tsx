@@ -40,7 +40,7 @@ const amenities: Amenity[] = [
     title: "Swimming pool",
     description:
       "Cool off and unwind in our pool after a long day of travel or meetings.",
-    image: "/images/amenities/pool.jpg",
+    image: "/images/marcelo-uva-n2v3lTWy74Y-unsplash.jpg",
   },
   {
     icon: Presentation,
@@ -55,21 +55,21 @@ const amenities: Amenity[] = [
     title: "24-hour reception",
     description:
       "Our front desk is always open to help with check-in and requests.",
-    image: "/images/amenities/reception.jpg",
+    image: "/images/dylan-calluy-8BYahZcwYgI-unsplash.jpg",
   },
   {
     icon: Car,
     title: "Free parking",
     description:
       "Safe, ample parking for guests, families, and conference attendees.",
-    image: "/images/amenities/parking.jpg",
+    image: "/images/sven-mieke-lOgR82HSQKM-unsplash.jpg",
   },
   {
     icon: Dumbbell,
     title: "Fitness room",
     description:
       "A well-equipped space to keep up your routine while you're away.",
-    image: "/images/amenities/fitness.jpg",
+    image: "/images/danielle-cerullo-CQfNt66ttZM-unsplash.jpg",
   },
   {
     icon: Shirt,
