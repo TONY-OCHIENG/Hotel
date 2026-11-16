@@ -271,7 +271,7 @@ function Home() {
                   <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
                     <div className="relative">
                       <img
-                        src="public/images/valeriia-bugaiova-_pPHgeHz1uk-unsplash.jpg"
+                        src="/images/valeriia-bugaiova-_pPHgeHz1uk-unsplash.jpg"
                         alt="Mara Hotel exterior"
                         loading="lazy"
                         className="aspect-[4/3] w-full rounded-xl bg-stone-200 object-cover shadow-md"
