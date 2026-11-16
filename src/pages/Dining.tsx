@@ -1,4 +1,4 @@
-import React from 'react'
+
 import DiningReservation from '../components/DiningReservation'
 
 function Dining() {
