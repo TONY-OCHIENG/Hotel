@@ -16,7 +16,7 @@ const images: GalleryImage[] = [
   { id: 3, src: "/images/executive.jpeg", alt: "Executive Room lounge and work desk", category: "Rooms" },
   { id: 4, src: "/images/family.jpg", alt: "Family Room with a king bed and twin beds", category: "Rooms" },
   { id: 5, src: "/images/breakfirst.jpeg", alt: "Breakfast buffet spread", category: "Dining" },
-  { id: 6, src: "public/images/diningarea.jpg", alt: "The Mara Restaurant dining area", category: "Dining" },
+  { id: 6, src: "/images/diningarea.jpg", alt: "The Mara Restaurant dining area", category: "Dining" },
   { id: 7, src: "/images/balazs-7ors4WLn8_U-unsplash.jpg", alt: "Garden Bar in the evening", category: "Dining" },
   { id: 8, src: "/images/boardroom.jpeg", alt: "Boardroom set for a meeting", category: "Conference" },
   { id: 9, src: "/images/hall3.jpeg", alt: "Mara Hall set up for a workshop", category: "Conference" },
