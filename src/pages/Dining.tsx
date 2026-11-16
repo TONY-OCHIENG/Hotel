@@ -1,4 +1,5 @@
 import React from 'react'
+import DiningReservation from '../components/DiningReservation'
 
 function Dining() {
   return (
@@ -31,6 +32,8 @@ function Dining() {
         </div>
       </header>
     </div>
+    {/* Dining reservation */}
+    <DiningReservation/>
       
     </div>
   )
