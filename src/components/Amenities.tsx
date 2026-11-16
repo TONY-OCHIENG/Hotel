@@ -76,14 +76,14 @@ const amenities: Amenity[] = [
     title: "Laundry service",
     description:
       "Same-day laundry and pressing on request, handy for longer stays.",
-    image: "/images/amenities/laundry.jpg",
+    image: "/images/oli-woodman-f4jsI88K7ds-unsplash.jpg",
   },
   {
     icon: Plane,
     title: "Airport transfers",
     description:
       "Pickup and drop-off arranged on request, so you arrive stress-free.",
-    image: "/images/amenities/airport.jpg",
+    image: "/images/rocker-sta-RSYBi_1fhfM-unsplash.jpg",
   },
 ];
 

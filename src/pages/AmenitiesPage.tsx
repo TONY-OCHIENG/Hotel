@@ -1,4 +1,3 @@
-import React from 'react'
 import Amenities from '../components/Amenities'
 
 function AmenitiesPage() {
