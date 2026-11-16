@@ -43,7 +43,7 @@ const halls: Hall[] = [
     setups: ["Banquet", "Theatre", "Cocktail"],
     description:
       "Our largest space for conferences, weddings, receptions, and large celebrations.",
-    image: "public/images/ballroom.jpg",
+    image: "/images/ballroom.jpg",
     halfDay: 70000,
     fullDay: 110000,
   },
