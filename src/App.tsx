@@ -8,6 +8,7 @@ import Confrence from "./pages/Confrence"
 import Dining from "./pages/Dining"
 import ContactPage from "./components/ContactPage"
 import GalleryPage from "./pages/GalleryPage"
+import AmenitiesPage from "./pages/AmenitiesPage"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
        <Route path="/dining" element={<Dining/>}/>
        <Route path="/gallery" element={<GalleryPage/>}/>
        <Route path="/contact" element={<ContactPage/>}/>
+       <Route path="/amenities" element={<AmenitiesPage/>}/>
       </Routes>
       <Footer/>
       <ScrollToTop/>
