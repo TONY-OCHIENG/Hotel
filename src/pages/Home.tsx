@@ -373,7 +373,7 @@ function Home() {
               <div className="mt-10 text-center">
                 <a
                   href="/book"
-                  className="inline-block rounded-lg bg-[#4d1600] px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+                  className="inline-block rounded-lg bg-orange-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
                 >
                   Reserve a table
                 </a>
@@ -440,7 +440,7 @@ function Home() {
                       </p>
                       <a
                         href={`/book?room=${room.id}`}
-                        className="rounded-lg bg-amber-900 px-4 py-2.5 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+                        className="rounded-lg bg-orange-700 px-4 py-2.5 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
                       >
                         Book this room
                       </a>
@@ -512,7 +512,7 @@ function Home() {
                     </p>
                     <a
                       href="mailto:events@marahotel.com?subject=Conference%20enquiry"
-                      className="rounded-lg bg-[#4d1600] px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+                      className="rounded-lg bg-orange-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
                     >
                       Request a quote
                     </a>
