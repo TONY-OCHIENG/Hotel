@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 const titles: Record<string, string> = {
   "/": "Home",
-  "/about": "About",
+  "/rooms": "Room",
   "/contact": "Contact",
   "/confrence": "Confrence",
   "/dining": "Dining",
@@ -17,7 +17,7 @@ export default function TitleUpdater() {
 
   useEffect(() => {
     const title = titles[pathname] ?? "Not Found";
-    document.title = `${title} | My Site`;
+    document.title = `${title} | Mara Hotel`;
   }, [pathname]);
 
   return null;
