@@ -47,7 +47,7 @@ const amenities: Amenity[] = [
     title: "Conference facilities",
     description:
       "Meeting rooms and halls with a projector, screen, sound system, and catering.",
-    image: "public/images/ballroom.jpg",
+    image: "/images/ballroom.jpg",
     wide: true,
   },
   {
