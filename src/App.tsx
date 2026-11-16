@@ -6,8 +6,8 @@ import Footer from "./components/Footer"
 import ScrollToTop from "./components/ScrollToTop"
 import Confrence from "./pages/Confrence"
 import Dining from "./pages/Dining"
-import Gallery from "./pages/Gallery"
 import ContactPage from "./components/ContactPage"
+import GalleryPage from "./pages/GalleryPage"
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
        <Route path="/rooms" element={<Room/>}/>
        <Route path="/confrence" element={<Confrence/>}/>
        <Route path="/dining" element={<Dining/>}/>
-       <Route path="/gallery" element={<Gallery/>}/>
+       <Route path="/gallery" element={<GalleryPage/>}/>
        <Route path="/contact" element={<ContactPage/>}/>
       </Routes>
       <Footer/>
